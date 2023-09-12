@@ -4,9 +4,7 @@ import FormData from "@/models/form";
 import {NextResponse} from "next/server";
 export const revalidate = 1;
 export async function POST(req, res) {
-  res.setHeader('Access-Control-Allow-Origin', 'https://patna-taxi-service.vercel.app');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
 
     try {
 
@@ -18,7 +16,12 @@ export async function POST(req, res) {
         return NextResponse.json({
             message:"Message sent successfully!"
         }, {
-            status: 200
+            status: 200,
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+                'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+              },
         })
 
     }catch (e) {
@@ -29,15 +32,19 @@ export async function POST(req, res) {
     }
 }
 
-export const GET = async (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', 'https://patna-taxi-service.vercel.app');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+export const GET = async (Request) => {
+   
     try {
         await dbConn();
         const data = await FormData.find();
         console.log("Data fetched successfully:", data);
-        return new NextResponse(JSON.stringify(data), { status: 200 });
+        return new NextResponse(JSON.stringify(data), { status: 200,
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+                'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+              },
+             });
     } catch (err) {
       
 
