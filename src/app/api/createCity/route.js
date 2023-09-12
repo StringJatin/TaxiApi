@@ -17,7 +17,14 @@ export async function POST(req, res) {
         return NextResponse.json({
             message:"route sent successfully!"
         }, {
-            status: 200
+            status: 200,
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+                'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+              },
+            
+            
         })
 
     }catch (e) {
