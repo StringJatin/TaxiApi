@@ -4,7 +4,7 @@ import FormData from "@/models/form";
 import {NextResponse} from "next/server";
 export const revalidate = 1;
 export async function POST(req, res) {
-    res.setHeader('Access-Control-Allow-Origin', 'https://patna-taxi-service.vercel.app');
+  res.setHeader('Access-Control-Allow-Origin', 'https://patna-taxi-service.vercel.app');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 
@@ -29,7 +29,7 @@ export async function POST(req, res) {
     }
 }
 
-export const GET = async (Request) => {
+export const GET = async (req, res) => {
     res.setHeader('Access-Control-Allow-Origin', 'https://patna-taxi-service.vercel.app');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
