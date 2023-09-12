@@ -30,6 +30,9 @@ export async function POST(req, res) {
 }
 
 export const GET = async (Request) => {
+    res.setHeader('Access-Control-Allow-Origin', 'https://patna-taxi-service.vercel.app');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     try {
         await dbConn();
         const data = await FormData.find();
