@@ -2,7 +2,7 @@
 import dbConn from "@/utils/dbConn";
 import FormData from "@/models/form";
 import {NextResponse} from "next/server";
-
+export const revalidate = 1;
 export async function POST(req, res) {
     try {
 

@@ -1,7 +1,7 @@
 import dbConn from "@/utils/dbConn";
 import RoutePage from "@/models/route";
 import {NextResponse} from "next/server";
-
+export const revalidate = 1;
 export async function POST(req, res) {
     try {
 

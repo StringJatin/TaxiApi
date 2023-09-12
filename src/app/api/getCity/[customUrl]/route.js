@@ -1,7 +1,7 @@
 import dbConn from "@/utils/dbConn";
 import CityData from "@/models/city";
 import { NextResponse } from "next/server";
-
+export const revalidate = 1;
 export const GET = async (request, { params }) => {
   const { customUrl } = params;
 
