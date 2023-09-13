@@ -1,6 +1,6 @@
 import Cors from 'cors';
 import { NextApiRequest, NextApiResponse } from 'next';
-import initMiddleware from '@/utils/init-middleware';
+import initMiddleware from '@/utils/initMiddleware';
 import dbConn from "@/utils/dbConn";
 import FormData from "@/models/form";
 import {NextResponse} from "next/server";
